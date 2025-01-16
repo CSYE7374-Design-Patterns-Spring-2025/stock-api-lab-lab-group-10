@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 abstract class Stock implements Tradable {
-    String companyName;
+    private final String companyName;
     private double stockPrice;
-    private String description;
-    private List<Double> bids;
+    private final String description;
+    private final List<Double> bids;
 
     public Stock(String companyName, double stockPrice, String description) {
         this.companyName = companyName;
