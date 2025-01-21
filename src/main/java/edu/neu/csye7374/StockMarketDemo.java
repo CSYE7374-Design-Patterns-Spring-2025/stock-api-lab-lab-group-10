@@ -9,6 +9,7 @@ public class StockMarketDemo {
         GoogleStock googleStock = new GoogleStock("Google", 300.23, "Google Corp.");
         AmexStock amexStock = new AmexStock("AMX", 100.0, "American Express", 0.10);
         AppleStock appleStock = new AppleStock("AAPL", 200.0, "Nvidia Corporation", 0.25);
+        FacebookStock facebookStock = new FacebookStock("Facebook", 100.0, "Facebook Inc.");
         stockMarket.addStock(amazonStock);
         stockMarket.addStock(chewyStock);
         stockMarket.addStock(amexStock);
@@ -22,6 +23,7 @@ public class StockMarketDemo {
         double[] chewyBids = new double[]{205.0, 190.0, 195.0, 210.0, 215.0, 200.0};
         double[] amexBids = new double[]{105.0, 102.0, 108.0, 106.0, 110.0, 107.0};
         double[] appleBids = new double[]{205.0, 202.0, 208.0, 206.0, 210.0, 207.0};
+        double[] facebookBids = new double[]{155.0, 140.0, 138.0, 145.0, 150.0, 125.0};
         double[] teslaBids = new double[]{401.0, 402.0, 403.0, 404.0, 405.0, 406.0};
         double[] googleBids = new double[]{301.0, 302.0, 303.0, 304.0, 305.0, 306.0};
         System.out.println("Starting trading Amazon Stock");
@@ -65,6 +67,15 @@ public class StockMarketDemo {
             stockMarket.tradeStock(appleStock, bid);
             System.out.println("AAPL metric: " + appleStock.getMetric());
             System.out.println(appleStock);
+        }
+
+        System.out.println();
+        System.out.println("Starting trading Facebook Stock");
+        for (double bid : facebookBids) {
+            System.out.println("\nPlacing bid for Facebook: " + bid);
+            stockMarket.tradeStock(facebookStock, bid);
+            System.out.println("Facebook metric: " + facebookStock.getMetric());
+            System.out.println(facebookStock);
         }
 
         System.out.println("start trading for Tesla stock");
