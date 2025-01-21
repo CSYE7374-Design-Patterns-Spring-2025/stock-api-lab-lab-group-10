@@ -5,12 +5,16 @@ public class StockMarketDemo {
         StockMarket stockMarket = StockMarket.getInstance();
         AmazonStock amazonStock = new AmazonStock("Amazon", 150.51, "Amazon Inc.");
         ChewyStock chewyStock = new ChewyStock("Chewy", 200.23, "Chewy Inc.");
+        TeslaStock teslaStock = new TeslaStock("Tesla", 400.23, "Tesla Corp.");
+        GoogleStock googleStock = new GoogleStock("Google", 300.23, "Google Corp.");
         AmexStock amexStock = new AmexStock("AMX", 100.0, "American Express", 0.10);
         AppleStock appleStock = new AppleStock("AAPL", 200.0, "Nvidia Corporation", 0.25);
         stockMarket.addStock(amazonStock);
         stockMarket.addStock(chewyStock);
         stockMarket.addStock(amexStock);
         stockMarket.addStock(appleStock);
+        stockMarket.addStock(teslaStock);
+        stockMarket.addStock(googleStock);
         System.out.println("Current stocks added to the stock market: ");
         stockMarket.showAllStocks();
         System.out.println();
@@ -18,6 +22,8 @@ public class StockMarketDemo {
         double[] chewyBids = new double[]{205.0, 190.0, 195.0, 210.0, 215.0, 200.0};
         double[] amexBids = new double[]{105.0, 102.0, 108.0, 106.0, 110.0, 107.0};
         double[] appleBids = new double[]{205.0, 202.0, 208.0, 206.0, 210.0, 207.0};
+        double[] teslaBids = new double[]{401.0, 402.0, 403.0, 404.0, 405.0, 406.0};
+        double[] googleBids = new double[]{301.0, 302.0, 303.0, 304.0, 305.0, 306.0};
         System.out.println("Starting trading Amazon Stock");
         double[] var6 = amazonBids;
         int var7 = amazonBids.length;
@@ -59,6 +65,22 @@ public class StockMarketDemo {
             stockMarket.tradeStock(appleStock, bid);
             System.out.println("AAPL metric: " + appleStock.getMetric());
             System.out.println(appleStock);
+        }
+
+        System.out.println("start trading for Tesla stock");
+        for(double bid: teslaBids){
+            System.out.println("\nPlacing bid for TSLA: " + bid);
+            stockMarket.tradeStock(teslaStock, bid);
+            System.out.println("TSLA metric: " + teslaStock.getMetric());
+            System.out.println(teslaStock);
+        }
+
+        System.out.println("start trading for Google stock");
+        for(double bid: googleBids){
+            System.out.println("\nPlacing bid for GOOG: " + bid);
+            stockMarket.tradeStock(googleStock, bid);
+            System.out.println("GOOG metric: " + googleStock.getMetric());
+            System.out.println(googleStock);
         }
 
 
